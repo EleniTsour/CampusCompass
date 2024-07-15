@@ -1,0 +1,323 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "geometry": { "type": "Point", "coordinates": [23.673942, 37.979121] },
+      "properties": {
+        "id": "1",
+        "latitude": "37.979121",
+        "longitude": "23.673942",
+        "point": "Electrical"
+      },
+      "campus": "Ancient Olive Grove Campus"
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.675113, 38.002796] },
+      "properties": {
+        "id": "2",
+        "latitude": "38.002796",
+        "longitude": "23.674900",
+        "point": "Biomedical Eng"
+      },
+      "campus": "Egaleo Park Campus"
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.672793, 37.977745] },
+      "properties": {
+        "id": "3",
+        "latitude": "37.977745",
+        "longitude": "23.672793",
+        "point": "Industrial Design"
+      },
+      "campus": "Ancient Olive Grove Campus"
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.676262, 38.002084] },
+      "properties": {
+        "id": "4",
+        "latitude": "38.002084",
+        "longitude": "23.676262",
+        "point": "Computer"
+      },
+      "campus": "Egaleo Park Campus"
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.676285, 38.002935] },
+      "properties": {
+        "id": "5",
+        "latitude": "38.002935",
+        "longitude": "23.676285",
+        "point": "Geoinformatics"
+      },
+      "campus": "Egaleo Park Campus"
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.673475, 37.978091] },
+      "properties": {
+        "id": "6",
+        "latitude": "37.978091",
+        "longitude": "23.673475",
+        "point": "Mechanical"
+      },
+      "campus": "Ancient Olive Grove Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.676570, 38.003297] },
+      "properties": {
+        "id": "7",
+        "latitude": "38.003297",
+        "longitude": "23.676570",
+        "point": "Naval"
+      },
+      "campus": "Egaleo Park Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.672695, 37.978496] },
+      "properties": {
+        "id": "8",
+        "latitude": "37.978496",
+        "longitude": "23.672695",
+        "point": "Civil"
+      },
+      "campus": "Ancient Olive Grove Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.675902, 38.002689] },
+      "properties": {
+        "id": "9",
+        "latitude": "38.002689",
+        "longitude": "23.675902",
+        "point": "Food Science"
+      },
+      "campus": "Egaleo Park Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.676899, 38.003240] },
+      "properties": {
+        "id": "10",
+        "latitude": "38.003240",
+        "longitude": "23.675600",
+        "point": "Wine Science"
+      },
+      "campus": "Egaleo Park Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.675839, 38.003592] },
+      "properties": {
+        "id": "11",
+        "latitude": "38.003592",
+        "longitude": "23.675839",
+        "point": "Early Childhood Care"
+      },
+      "campus": "Egaleo Park Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.676096, 38.004036] },
+      "properties": {
+        "id": "12",
+        "latitude": "38.004036",
+        "longitude": "23.676096",
+        "point": "Archival"
+      },
+      "campus": "Egaleo Park Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.674639, 37.978659] },
+      "properties": {
+        "id": "13",
+        "latitude": "37.978659",
+        "longitude": "23.674639",
+        "point": "Business"
+      },
+      "campus": "Ancient Olive Grove Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.676777, 38.003770] },
+      "properties": {
+        "id": "14",
+        "latitude": "38.003770",
+        "longitude": "23.676777",
+        "point": "Tourism"
+      },
+      "campus": "Egaleo Park Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.673218, 37.979645] },
+      "properties": {
+        "id": "15",
+        "latitude": "37.979645",
+        "longitude": "23.673218",
+        "point": "Social Work"
+      },
+      "campus": "Ancient Olive Grove Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.674191, 37.978408] },
+      "properties": {
+        "id": "16",
+        "latitude": "37.978408",
+        "longitude": "23.674191",
+        "point": "Accounting"
+      },
+      "campus": "Ancient Olive Grove Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.759222, 37.986833] },
+      "properties": {
+        "id": "17",
+        "latitude": "37.986570",
+        "longitude": "23.759150",
+        "point": "Health"
+      },
+      "campus": "Athens Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.759150, 37.986440] },
+      "properties": {
+        "id": "18",
+        "latitude": "37.986440",
+        "longitude": "23.759150",
+        "point": "Health Policies"
+      },
+      "campus": "Athens Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.675803, 38.001831] },
+      "properties": {
+        "id": "19",
+        "latitude": "38.001831",
+        "longitude": "23.675803",
+        "point": "Biomedical Sciences"
+      },
+      "campus": "Egaleo Park Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.675202, 38.002065] },
+      "properties": {
+        "id": "20",
+        "latitude": "38.002065",
+        "longitude": "23.675202",
+        "point": "Occupational"
+      },
+      "campus": "Egaleo Park Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.676645, 38.004274] },
+      "properties": {
+        "id": "21",
+        "latitude": "38.004274",
+        "longitude": "23.676645",
+        "point": "Midwifery"
+      },
+      "campus": "Egaleo Park Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.676297, 38.002376] },
+      "properties": {
+        "id": "22",
+        "latitude": "38.002376",
+        "longitude": "23.676297",
+        "point": "Nursing"
+      },
+      "campus": "Egaleo Park Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.674210, 38.001860] },
+      "properties": {
+        "id": "23",
+        "latitude": "38.001860",
+        "longitude": "23.674210",
+        "point": "Physiotherapy"
+      },
+      "campus": "Egaleo Park Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.675293, 38.001509] },
+      "properties": {
+        "id": "24",
+        "latitude": "38.001509",
+        "longitude": "23.675293",
+        "point": "Graphic"
+      },
+      "campus": "Egaleo Park Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.677101, 38.004058] },
+      "properties": {
+        "id": "25",
+        "latitude": "38.004058",
+        "longitude": "23.677101",
+        "point": "Interior Architecture"
+      },
+      "campus": "Egaleo Park Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.675819, 38.001243] },
+      "properties": {
+        "id": "26",
+        "latitude": "38.001243",
+        "longitude": "23.675819",
+        "point": "Conservation"
+      },
+      "campus": "Egaleo Park Campus"
+      
+    },
+    {
+     
+      "geometry": { "type": "Point", "coordinates": [23.674473, 38.001547] },
+      "properties": {
+        "id": "27",
+        "latitude": "38.001547",
+        "longitude": "23.674473",
+        "point": "Photography"
+      },
+      "campus": "Egaleo Park Campus"
+      
+    }
+  ]
+}
