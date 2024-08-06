@@ -28,7 +28,7 @@ const Listing = ({ listings: items, category, refresh, isWhishlist }: Props) => 
   }, [refresh]);
 
   useEffect(() => {
-    console.log('reload listings', items.length);
+    //console.log('reload listings', items.length);
     setLoading(true);
 
     setTimeout(() => {

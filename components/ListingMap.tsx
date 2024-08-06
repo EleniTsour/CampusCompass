@@ -38,7 +38,7 @@ const ListingMap = memo(({ listings, category }: Props) => {
 
     const onMarkerSelected = (item: ListingGeo) => {
         router.push(`/listing/${item.properties.id}`);
-        console.log(item);
+        //console.log(item);
     };
 
     const renderCluster = (cluster: any) => {

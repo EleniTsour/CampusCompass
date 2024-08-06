@@ -1,12 +1,15 @@
-import { useFonts } from 'expo-font';
+import { isLoaded, useFonts } from 'expo-font';
 import { Stack, useRouter } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import 'react-native-reanimated';
+import { FIREBASE_AUTH } from '@/FirebaseConfig';
 
 import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { FavoritesProvider } from '@/components/FavoritesProvider';
+import { onAuthStateChanged, User } from 'firebase/auth';
+
 //import * as SecureStore from 'expo-secure-store';
 
 
@@ -55,7 +58,19 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const router = useRouter();
+  const [user, setUser] = useState<User | null>(null);
 
+  
+  //Popup for login, we need an if statement when the user is already loged in
+  useEffect(() => {
+    onAuthStateChanged(FIREBASE_AUTH, (userInfo) => {
+      console.log('USER YES');
+      setUser(userInfo);
+      router.push('/(modals)/login');
+    })
+  }, []);
+
+  
   return (
     <FavoritesProvider>
       <Stack>

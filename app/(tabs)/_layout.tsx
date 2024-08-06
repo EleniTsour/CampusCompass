@@ -31,6 +31,12 @@ const Layout = () => {
           tabBarIcon: ({color, size}) => 
             <MaterialCommunityIcons name='robot' color={color} size={size}/>
         }}/>
+         <Tabs.Screen name='Profile' options={{
+          tabBarLabel: 'Profile',
+          title: '',
+          tabBarIcon: ({color, size}) => 
+            <MaterialCommunityIcons name='login' color={color} size={size}/>
+        }}/>
     </Tabs>
   )
 }

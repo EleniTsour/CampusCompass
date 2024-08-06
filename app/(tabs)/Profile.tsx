@@ -6,16 +6,12 @@ import { TextInput } from 'react-native-gesture-handler';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, User } from 'firebase/auth';
 import Colors from '@/constants/Colors';
-import { useRouter } from 'expo-router';
-import { TouchableOpacity } from '@gorhom/bottom-sheet';
 
 
 const Profile = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
-
-    const router = useRouter();
     
 
     const auth = FIREBASE_AUTH;
@@ -24,7 +20,7 @@ const Profile = () => {
         setLoading(true);
         try {
             const response = await signInWithEmailAndPassword(auth, email, password);
-            console.log('USER', response);
+            console.log(response);
         }
         catch (error : any) {
             console.log(error);
@@ -32,7 +28,6 @@ const Profile = () => {
         }
         finally {
             setLoading(false);
-            router.back();
         }
     }
 
@@ -49,13 +44,11 @@ const Profile = () => {
         }
         finally {
             setLoading(false);
-            router.back();
         }
     }
  
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-        <Text style={styles.headerText}>Login or Sign up</Text>
     <View style={styles.container}>
         <KeyboardAvoidingView  behavior='padding'>
             <TextInput 
@@ -82,12 +75,8 @@ const Profile = () => {
         <ActivityIndicator size="large" color="#0000ff" />
     ) : (
         <>
-            <TouchableOpacity style={styles.button} onPress={signIn}>
-                <Text style={styles.buttonText}>Login</Text>
-            </TouchableOpacity> 
-            <TouchableOpacity style={styles.button} onPress={signUp} >
-                <Text style={styles.buttonText}>Create account</Text>
-            </TouchableOpacity> 
+            <Button title="Login" onPress={signIn} /> 
+            <Button title="Create account" onPress={signUp} /> 
 
         </>
     )}
@@ -113,22 +102,9 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 4,
         padding: 10,
-        backgroundColor: '#fff',
-        color: Colors.primary
+        backgroundColor: '#fff'
     },
     button: {
-        backgroundColor: 'none',
-        margin: 5,
-        alignItems: 'center'
-    },
-    buttonText: {
-        color: Colors.primary,
-    },
-    headerText: {
-        fontFamily: 'mon-b',
-        fontSize: 25,
-        alignItems: 'center',
-        color: Colors.primary,
-        marginVertical: 40
+        color: Colors.primary
     }
 });

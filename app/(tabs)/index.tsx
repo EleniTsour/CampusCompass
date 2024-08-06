@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Stack } from 'expo-router';
+import { Link, Stack } from 'expo-router';
 import ExplorerHeader from '@/components/ExploreHeader';
 import listingsData from '@/assets/data/airbnb-listings.json';
 import ListingMap from '@/components/ListingMap';
@@ -12,7 +12,7 @@ const Page = () => {
   const items = useMemo(() => listingsData as any, []);
   const geoItems = useMemo(() => listingDataGeo as any, []);
 
-console.log("geoItems",geoItems);
+//console.log("geoItems",geoItems);
 
   const onDataChanged = (category: string) => {
     setCategory(category);
