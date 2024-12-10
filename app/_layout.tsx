@@ -1,20 +1,13 @@
-import { isLoaded, useFonts } from 'expo-font';
+import { useFonts } from 'expo-font';
 import { Stack, useRouter } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import 'react-native-reanimated';
-import { FIREBASE_AUTH } from '@/FirebaseConfig';
 
 import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { FavoritesProvider } from '@/components/FavoritesProvider';
-import { onAuthStateChanged, User } from 'firebase/auth';
-
-//import * as SecureStore from 'expo-secure-store';
-
-
-  //webClientId: '241409233594-ovbh6tvfi2lq2ihocgnk2a2an7fok5je.apps.googleusercontent.com', // Get this from Firebase Console
-
+import { UserProvider } from './Context/UserContext';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -52,41 +45,18 @@ export default function RootLayout() {
   }
 
   return (
-    <RootLayoutNav />
+    <UserProvider>
+      <RootLayoutNav />
+    </UserProvider>
   );
 }
 
 function RootLayoutNav() {
   const router = useRouter();
-  const [user, setUser] = useState<User | null>(null);
-
-  
-  //Popup for login, we need an if statement when the user is already loged in
-  useEffect(() => {
-    onAuthStateChanged(FIREBASE_AUTH, (userInfo) => {
-      console.log('USER YES');
-      setUser(userInfo);
-      router.push('/(modals)/login');
-    })
-  }, []);
-
-  
   return (
     <FavoritesProvider>
       <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="(modals)/login" options={{ 
-        presentation: 'modal',
-        title: 'Log in or sign up',
-        headerTitleStyle: {
-          fontFamily: 'mon-sb'
-        },
-        headerLeft: () => (
-          <TouchableOpacity onPress={() => router.back()}>
-            <Ionicons name='close-outline' size={28}/>
-          </TouchableOpacity>
-        )
-       }} />
+       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
        <Stack.Screen name='listing/[id]' options={{headerTitle: '', headerTransparent: true}}/>
        <Stack.Screen name='(modals)/booking' options={{
         presentation: 'transparentModal',
@@ -97,9 +67,7 @@ function RootLayoutNav() {
           </TouchableOpacity>
         )
        }}/>
-
     </Stack>
     </FavoritesProvider>
-    
   );
 }

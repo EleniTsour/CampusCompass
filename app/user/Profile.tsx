@@ -1,26 +1,30 @@
-import { View, Text, ActivityIndicator, Button, KeyboardAvoidingView } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { View, ActivityIndicator, Button, KeyboardAvoidingView } from 'react-native'
+import React, {  useState } from 'react'
 import { FIREBASE_AUTH } from '@/FirebaseConfig';
 import { StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, User } from 'firebase/auth';
 import Colors from '@/constants/Colors';
+import { useUser } from '../Context/UserContext';
+import { useRouter } from 'expo-router';
 
 
 const Profile = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
-    
+    const { setUser } = useUser();
 
     const auth = FIREBASE_AUTH;
+    const router = useRouter();
 
     const signIn = async () => {
         setLoading(true);
         try {
             const response = await signInWithEmailAndPassword(auth, email, password);
-            console.log(response);
+            setUser(response.user)
+            router.back();
         }
         catch (error : any) {
             console.log(error);
@@ -35,8 +39,7 @@ const Profile = () => {
         setLoading(true);
         try {
             const response = await createUserWithEmailAndPassword(auth, email, password);
-            console.log(response);
-            alert('Check your emails!')
+            setUser(response.user)
         }
         catch (error : any) {
             console.log(error);
