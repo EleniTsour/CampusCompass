@@ -7,7 +7,7 @@ const Chat = () => {
   if (!user) return null
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome to Chat!</Text>
+      <Text style={styles.text}>Welcome to Chat {user.email}!</Text>
     </View>
   );
 };

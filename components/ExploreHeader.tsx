@@ -9,7 +9,7 @@ import { useRef } from 'react';
 import * as Haptics from 'expo-haptics';
 import { Image } from 'react-native';
 import localImages from '@/constants/LocalImages';
-
+import { useUser } from '@/app/Context/UserContext';
 
 const categories = [
     {
@@ -34,17 +34,18 @@ interface Props {
     onCategoryChanged: (category: string) => void
 }
 
-const ExplorerHeader = ({onCategoryChanged} : Props) => {
+const ExplorerHeader = ({onCategoryChanged}: Props) => {
   const scrollRef = useRef<ScrollView>(null);
   const itemsRef = useRef<Array<TouchableOpacity | null>>([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const { user, setUser } = useUser();
 
   const selectCategory = (index: number) => {
     const selected = itemsRef.current[index];
     setActiveIndex(index);
 
     selected?.measure((x, y, width, height, pageX) => {
-        scrollRef.current?.scrollTo({x: pageX -16, y: 0, animated: true});
+        scrollRef.current?.scrollTo({x: pageX - 16, y: 0, animated: true});
     })
 
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -52,29 +53,43 @@ const ExplorerHeader = ({onCategoryChanged} : Props) => {
     onCategoryChanged(categories[index].name);
   };
 
+  const handleLogout = () => {
+    setUser(null)
+  };
+
   return (
     <SafeAreaView style={{backgroundColor: '#fff'}}>   
         <View style={styles.container}>
             <View style={styles.actionRow}>
-            <Image source={localImages.compass} style={{ width: 50, height: 50 }} />
-            <Text style={{fontFamily: 'mon-b', fontSize: 16}}>Campus Compass</Text>
+                <View style={styles.logoContainer}>
+                    <Image source={localImages.compass} style={{ width: 50, height: 50 }} />
+                    <Text style={{fontFamily: 'mon-b', fontSize: 16}}>Campus Compass</Text>
+                </View>
+                {
+                    user && (
+                        <TouchableOpacity onPress={handleLogout}>
+                            <MaterialIcons name="logout" size={26} color={Colors.dark} />
+                        </TouchableOpacity>
+                    )
+                }
             </View>
            
             <ScrollView 
-            ref={scrollRef}
-            horizontal 
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{
-                alignItems: 'center',
-                gap: 30,
-                paddingHorizontal: 16,
-            }}
+                ref={scrollRef}
+                horizontal 
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{
+                    alignItems: 'center',
+                    gap: 30,
+                    paddingHorizontal: 16,
+                }}
             >
                 {categories.map((item, index) => (
-                    <TouchableOpacity key={index} 
-                    ref={(el) => itemsRef.current[index] = el}
-                    style={activeIndex === index ? styles.categoriesButtonActive : styles.categoriesButton}
-                    onPress={() => selectCategory(index)}
+                    <TouchableOpacity 
+                        key={index} 
+                        ref={(el) => itemsRef.current[index] = el}
+                        style={activeIndex === index ? styles.categoriesButtonActive : styles.categoriesButton}
+                        onPress={() => selectCategory(index)}
                     >
                         <MaterialIcons size={24} name={item.icon as any} color={activeIndex === index ? '#000' : Colors.grey}/>
                         <Text style={activeIndex === index ? styles.categoryTextActive : styles.categoryText}>{item.name}</Text>
@@ -84,7 +99,6 @@ const ExplorerHeader = ({onCategoryChanged} : Props) => {
         
         </View>
     </SafeAreaView>
-   
   );
 };
 
@@ -97,10 +111,15 @@ const styles = StyleSheet.create({
     actionRow: {
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'space-between',
         paddingHorizontal: 24,
         paddingBottom: 16,
+      },
+      logoContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
         gap: 10,
-    },
+      },
     filterButton: {
         padding: 10,
         borderWidth: 1,
@@ -117,7 +136,6 @@ const styles = StyleSheet.create({
         padding: 14,
         borderRadius: 30,
         backgroundColor: '#fff',
-        
         elevation: 8,
         shadowColor: '#000',
         shadowOpacity: 0.12,
@@ -152,4 +170,5 @@ const styles = StyleSheet.create({
         paddingBottom: 8,
     }
 })
+
 export default ExplorerHeader;
